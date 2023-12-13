@@ -1,35 +1,43 @@
+import { Box, Flex } from '@chakra-ui/react';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './Componentes/Header.jsx';
+import Formulario from './Componentes/Formulario.jsx';
+
+
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tareas, setTareas] = useState(JSON.parse(localStorage.getItem('tareas')) || []);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const tareaRealizada = (tarea) = {
+    const tareaNueva = [...tareas, tarea]
+    localStorage.setItem ('tareas' , JSON.stringify(tareaNueva))
+    setTareas(tareaNueva)
+  };
+
+  const borrarTarea = (id) => { 
+    const close = tareas.filter(tareas => 
+      tarea.id ! == id)
+    setTareas(close)
+    //localStorage.setItem('tareas' , JSON.stringify(buenasTareas));
 }
 
-export default App
+const pepe = (id) => { 
+  const array = [...tareas]
+  const tareaCompletada = array.find(tarea = tarea.id === id)
+  tareaCompletada.completed = !completedTarea.completed
+  setTareas(array)
+}
+  return (
+    <Box backgroundImage="url('">
+    // alignItems='center' color='pink'/> 
+    //<Formulario onSubmit={onSubmit} tareas={tareas} />
+  //) 
+  <Header/>
+  <Formulario tareas={tareas} close={close}/>
+  </Box>
+  );
+};
+export default App 
