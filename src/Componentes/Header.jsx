@@ -1,6 +1,4 @@
 import {Center, Heading} from "@chakra-ui/react";
-//import { Image } from '@chakra-ui/react'
-
 
 export default function Header () {
     return (
